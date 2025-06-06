@@ -1,6 +1,6 @@
-import React from 'react';
-import FloatingLabelInput from './FloatingLabelInput';
-import { Trash2 } from 'lucide-react';
+import React from "react";
+import FloatingLabelInput from "./FloatingLabelInput";
+import { Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const ItemDetails = ({ items, handleItemChange, addItem, removeItem }) => {
@@ -14,25 +14,29 @@ const ItemDetails = ({ items, handleItemChange, addItem, removeItem }) => {
               id={`itemName${index}`}
               label="Name"
               value={item.name}
-              onChange={(e) => handleItemChange(index, 'name', e.target.value)}
+              onChange={(e) => handleItemChange(index, "name", e.target.value)}
             />
             <FloatingLabelInput
               id={`itemQuantity${index}`}
               label="Quantity"
               type="number"
               value={item.quantity}
-              onChange={(e) => handleItemChange(index, 'quantity', parseFloat(e.target.value))}
+              onChange={(e) =>
+                handleItemChange(index, "quantity", parseFloat(e.target.value))
+              }
             />
             <FloatingLabelInput
               id={`itemAmount${index}`}
-              label="Amount (₹)"
+              label="Amount (£)"
               type="number"
               value={item.amount}
-              onChange={(e) => handleItemChange(index, 'amount', parseFloat(e.target.value))}
+              onChange={(e) =>
+                handleItemChange(index, "amount", parseFloat(e.target.value))
+              }
             />
             <FloatingLabelInput
               id={`itemTotal${index}`}
-              label="Total (₹)"
+              label="Total (£)"
               type="number"
               value={(item.quantity * item.amount).toFixed(2)}
               disabled
@@ -42,7 +46,9 @@ const ItemDetails = ({ items, handleItemChange, addItem, removeItem }) => {
             id={`itemDescription${index}`}
             label="Description"
             value={item.description}
-            onChange={(e) => handleItemChange(index, 'description', e.target.value)}
+            onChange={(e) =>
+              handleItemChange(index, "description", e.target.value)
+            }
           />
           {index > 0 && (
             <Button
@@ -56,7 +62,13 @@ const ItemDetails = ({ items, handleItemChange, addItem, removeItem }) => {
           )}
         </div>
       ))}
-      <Button type="button" onClick={addItem} className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Add Item</Button>
+      <Button
+        type="button"
+        onClick={addItem}
+        className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+      >
+        Add Item
+      </Button>
     </div>
   );
 };
